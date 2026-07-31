@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         /* ==========================================================================
@@ -19,7 +19,7 @@
             --bg-base: #080A0F;
             --bg-surface: #10141E;
             --bg-surface-elevated: #171D2B;
-            --bg-glass: rgba(16, 20, 30, 0.75);
+            --bg-glass: rgba(16, 20, 30, 0.85);
 
             /* Brand Accent Colors: Red & Yellow */
             --accent-red: #E50914;
@@ -52,7 +52,7 @@
             --bg-base: #F8FAFC;
             --bg-surface: #FFFFFF;
             --bg-surface-elevated: #F1F5F9;
-            --bg-glass: rgba(255, 255, 255, 0.85);
+            --bg-glass: rgba(255, 255, 255, 0.90);
 
             /* Brand Accent Colors */
             --accent-red: #E50914;
@@ -85,7 +85,7 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
             --font-tamil-primary: 'Anek Tamil', sans-serif;
-            --trans-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            --trans-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             --trans-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -164,14 +164,24 @@
         }
         .btn-outline:hover { border-color: var(--accent-yellow); color: var(--accent-yellow); }
 
-        /* Navbar Controls */
+        /* ==========================================================================
+           NAVBAR FIXED (PREVENT JUMP & BORDER GLITCH)
+           ========================================================================== */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            padding: 1.25rem 0; transition: all var(--trans-fast);
+            padding: 1.25rem 0;
+            background: transparent;
+            border-bottom: 1px solid transparent; /* Keeps height constant to avoid layout jump */
+            transition: background-color var(--trans-fast), 
+                        border-color var(--trans-fast), 
+                        padding var(--trans-fast);
         }
         .navbar.scrolled {
-            background: var(--bg-glass); backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-subtle); padding: 0.85rem 0;
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom-color: var(--border-subtle);
+            padding: 0.85rem 0;
         }
         .nav-container { display: flex; align-items: center; justify-content: space-between; }
         .logo { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; text-decoration: none; color: var(--text-primary); }
@@ -256,7 +266,7 @@
         .stat-item p { font-size: 0.85rem; color: var(--text-tertiary); margin: 0; }
 
         /* ==========================================================================
-           3. TICKET SHOWCASE SECTION (CLEAN BORDER & SHADOW - NO HOVER SHIFT)
+           3. TICKET SHOWCASE SECTION (CLEAN BORDER & SHADOW)
            ========================================================================== */
         .ticket-section {
             padding: 3rem 0 6rem;
@@ -270,7 +280,6 @@
             gap: 1.5rem;
         }
 
-        /* Ticket Card Base Design */
         .reference-ticket {
             background: var(--ticket-bg);
             color: var(--ticket-text);
