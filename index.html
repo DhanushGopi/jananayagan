@@ -165,13 +165,13 @@
         .btn-outline:hover { border-color: var(--accent-yellow); color: var(--accent-yellow); }
 
         /* ==========================================================================
-           NAVBAR FIXED (PREVENT JUMP & BORDER GLITCH)
+           NAVBAR FIXED
            ========================================================================== */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: 1.25rem 0;
             background: transparent;
-            border-bottom: 1px solid transparent; /* Keeps height constant to avoid layout jump */
+            border-bottom: 1px solid transparent;
             transition: background-color var(--trans-fast), 
                         border-color var(--trans-fast), 
                         padding var(--trans-fast);
@@ -266,7 +266,7 @@
         .stat-item p { font-size: 0.85rem; color: var(--text-tertiary); margin: 0; }
 
         /* ==========================================================================
-           3. TICKET SHOWCASE SECTION (CLEAN BORDER & SHADOW)
+           3. TICKET SHOWCASE SECTION
            ========================================================================== */
         .ticket-section {
             padding: 3rem 0 6rem;
@@ -318,23 +318,17 @@
 
         .ticket-meta-row { margin-bottom: 1.25rem; }
         .booking-info { font-size: 0.95rem; color: var(--ticket-subtext); font-weight: 600; line-height: 1.5; }
-
         .booking-id-text { color: var(--ticket-text); font-weight: 700; }
-
         .show-datetime { font-size: 1.1rem; font-weight: 700; color: var(--ticket-text); margin-top: 1rem; }
-
         .ticket-divider { border: none; border-top: 1px solid var(--ticket-inner-border); margin: 1.5rem 0; }
 
         .ticket-qr-block { display: flex; align-items: center; gap: 1.5rem; }
         .qr-image { width: 100px; height: 100px; border-radius: 10px; flex-shrink: 0; }
         .seat-info h3 { font-size: 1.3rem; font-weight: 800; color: var(--ticket-text); letter-spacing: 0.2px; }
-
         .seat-info .count { font-size: 0.95rem; color: var(--ticket-subtext); margin-top: 0.1rem; }
-
         .seat-info .number { font-size: 1rem; font-weight: 700; color: var(--ticket-text); margin-top: 0.1rem; }
 
         .theater-location { margin-top: 1.5rem; font-size: 1rem; font-weight: 600; color: var(--ticket-text); }
-
         .ticket-actions { display: flex; gap: 1rem; justify-content: center; }
 
         /* ==========================================================================
@@ -398,7 +392,7 @@
         }
 
         .marquee-item {
-            flex-shrink: 0; height: 320px; background: var(--bg-surface);
+            flex-shrink: 0; height: 280px; background: var(--bg-surface);
             border: 1px solid var(--border-subtle); border-radius: 16px;
             overflow: hidden; position: relative; cursor: pointer;
             transition: border-color var(--trans-fast), transform var(--trans-fast);
@@ -406,8 +400,6 @@
         .marquee-item:hover { border-color: var(--accent-yellow); transform: translateY(-4px); }
 
         .marquee-item.ratio-16-9 { aspect-ratio: 16 / 9; }
-        .marquee-item.ratio-1-1  { aspect-ratio: 1 / 1; }
-        .marquee-item.ratio-4-5  { aspect-ratio: 4 / 5; }
 
         .marquee-item img,
         .marquee-item video {
@@ -516,7 +508,7 @@
             .hero-stats { flex-direction: column; gap: 1.5rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
-            .marquee-item { height: 230px; }
+            .marquee-item { height: 200px; }
             .reference-ticket { padding: 1.25rem; }
             .ticket-qr-block { flex-direction: column; align-items: flex-start; }
             .modal-close-btn { top: -45px; right: 0; }
@@ -527,7 +519,7 @@
 <body>
 
     <audio id="bg-audio" loop preload="auto">
-        <source src="./tribute.mp3" type="audio/mpeg">
+        <source src="fdfs/tribute.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -594,7 +586,7 @@
                 <div class="ticket-card-container">
                     <div class="reference-ticket">
                         <div class="ticket-top-header">
-                            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=300&q=80" alt="Jana Nayagan Poster" class="movie-poster">
+                            <img src="fdfs/photo1.jpeg" alt="Jana Nayagan Poster" class="movie-poster">
                             <div class="movie-details">
                                 <h2>Jana Nayagan</h2>
                                 <div class="tags">Tamil &nbsp;|&nbsp; 2D &nbsp;|&nbsp; A</div>
@@ -675,64 +667,83 @@
             
             <div class="marquee-viewport">
                 <div class="marquee-track">
-                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="https://assets.mixkit.co/videos/preview/mixkit-actor-in-a-stage-spotlight-41541-large.mp4">
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo1.jpeg">
+                        <img src="fdfs/photo1.jpeg" alt="Photo 1">
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo2.jpeg">
+                        <img src="fdfs/photo2.jpeg" alt="Photo 2">
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo3.jpeg">
+                        <img src="fdfs/photo3.jpeg" alt="Photo 3">
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video1.mp4">
                         <span class="media-badge">▶ VIDEO</span>
-                        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-actor-in-a-stage-spotlight-41541-large.mp4" type="video/mp4">
+                        <video autoplay loop muted playsinline>
+                            <source src="fdfs/video1.mp4" type="video/mp4">
                         </video>
                     </div>
 
-                    <div class="marquee-item ratio-1-1" data-media-type="image" data-media-src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1000&q=80">
-                        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=600&q=80" alt="Square Photo Moment">
-                    </div>
-
-                    <div class="marquee-item ratio-4-5" data-media-type="image" data-media-src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1000&q=80">
-                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=600&q=80" alt="Portrait Poster Photo">
-                    </div>
-
-                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80">
-                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Landscape Cinema Photo">
-                    </div>
-
-                    <div class="marquee-item ratio-1-1" data-media-type="video" data-media-src="https://assets.mixkit.co/videos/preview/mixkit-crowd-at-a-concert-4028-large.mp4">
+                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video2.mp4">
                         <span class="media-badge">▶ REEL</span>
-                        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=600&q=80">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-crowd-at-a-concert-4028-large.mp4" type="video/mp4">
+                        <video autoplay loop muted playsinline>
+                            <source src="fdfs/video2.mp4" type="video/mp4">
                         </video>
                     </div>
 
-                    <div class="marquee-item ratio-4-5" data-media-type="video" data-media-src="https://assets.mixkit.co/videos/preview/mixkit-concert-stage-lights-illuminating-the-dark-42880-large.mp4">
-                        <span class="media-badge">▶ SHORT</span>
-                        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-concert-stage-lights-illuminating-the-dark-42880-large.mp4" type="video/mp4">
+                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video3.mp4">
+                        <span class="media-badge">▶ REEL</span>
+                        <video autoplay loop muted playsinline>
+                            <source src="fdfs/video3.mp4" type="video/mp4">
                         </video>
                     </div>
 
-                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="https://assets.mixkit.co/videos/preview/mixkit-actor-in-a-stage-spotlight-41541-large.mp4" aria-hidden="true">
+                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video4.mp4">
+                        <span class="media-badge">▶ REEL</span>
+                        <video autoplay loop muted playsinline>
+                            <source src="fdfs/video4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo1.jpeg" aria-hidden="true">
+                        <img src="fdfs/photo1.jpeg" alt="Photo 1">
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo2.jpeg" aria-hidden="true">
+                        <img src="fdfs/photo2.jpeg" alt="Photo 2">
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo3.jpeg" aria-hidden="true">
+                        <img src="fdfs/photo3.jpeg" alt="Photo 3">
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video1.mp4" aria-hidden="true">
                         <span class="media-badge">▶ VIDEO</span>
-                        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-actor-in-a-stage-spotlight-41541-large.mp4" type="video/mp4">
+                        <video autoplay loop muted playsinline>
+                            <source src="fdfs/video1.mp4" type="video/mp4">
                         </video>
                     </div>
-                    <div class="marquee-item ratio-1-1" data-media-type="image" data-media-src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1000&q=80" aria-hidden="true">
-                        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=600&q=80" alt="Square Photo Moment">
-                    </div>
-                    <div class="marquee-item ratio-4-5" data-media-type="image" data-media-src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1000&q=80" aria-hidden="true">
-                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=600&q=80" alt="Portrait Poster Photo">
-                    </div>
-                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80" aria-hidden="true">
-                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Landscape Cinema Photo">
-                    </div>
-                    <div class="marquee-item ratio-1-1" data-media-type="video" data-media-src="https://assets.mixkit.co/videos/preview/mixkit-crowd-at-a-concert-4028-large.mp4" aria-hidden="true">
+
+                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video2.mp4" aria-hidden="true">
                         <span class="media-badge">▶ REEL</span>
-                        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=600&q=80">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-crowd-at-a-concert-4028-large.mp4" type="video/mp4">
+                        <video autoplay loop muted playsinline>
+                            <source src="fdfs/video2.mp4" type="video/mp4">
                         </video>
                     </div>
-                    <div class="marquee-item ratio-4-5" data-media-type="video" data-media-src="https://assets.mixkit.co/videos/preview/mixkit-concert-stage-lights-illuminating-the-dark-42880-large.mp4" aria-hidden="true">
-                        <span class="media-badge">▶ SHORT</span>
-                        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-concert-stage-lights-illuminating-the-dark-42880-large.mp4" type="video/mp4">
+
+                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video3.mp4" aria-hidden="true">
+                        <span class="media-badge">▶ REEL</span>
+                        <video autoplay loop muted playsinline>
+                            <source src="fdfs/video3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video4.mp4" aria-hidden="true">
+                        <span class="media-badge">▶ REEL</span>
+                        <video autoplay loop muted playsinline>
+                            <source src="fdfs/video4.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -887,7 +898,7 @@
         }
 
         /* ==========================================================================
-           BACKGROUND AUDIO PLAYER CONTROLLER
+           BACKGROUND AUDIO PLAYER CONTROLLER WITH AUTOMATIC PLAYBACK
            ========================================================================== */
         function initAudioPlayer() {
             const audio = document.getElementById('bg-audio');
@@ -895,21 +906,6 @@
             const toggleBtn = document.getElementById('music-toggle-btn');
             const musicIcon = document.getElementById('music-icon');
             const statusText = document.getElementById('music-status-text');
-
-            const promise = audio.play();
-
-            if (promise !== undefined) {
-                promise.then(() => {
-                    updatePlayerUI(true);
-                }).catch(error => {
-                    updatePlayerUI(false);
-                    const handleFirstUserInteraction = () => {
-                        audio.play().then(() => updatePlayerUI(true));
-                        document.removeEventListener('click', handleFirstUserInteraction);
-                    };
-                    document.addEventListener('click', handleFirstUserInteraction);
-                });
-            }
 
             function updatePlayerUI(isPlaying) {
                 if (isPlaying) {
@@ -922,6 +918,28 @@
                     statusText.innerText = 'Paused';
                 }
             }
+
+            const attemptPlay = () => {
+                const promise = audio.play();
+                if (promise !== undefined) {
+                    promise.then(() => {
+                        updatePlayerUI(true);
+                    }).catch(() => {
+                        updatePlayerUI(false);
+                        const handleInteraction = () => {
+                            audio.play().then(() => updatePlayerUI(true));
+                            document.removeEventListener('click', handleInteraction);
+                            document.removeEventListener('keydown', handleInteraction);
+                            document.removeEventListener('scroll', handleInteraction);
+                        };
+                        document.addEventListener('click', handleInteraction);
+                        document.addEventListener('keydown', handleInteraction);
+                        document.addEventListener('scroll', handleInteraction);
+                    });
+                }
+            };
+
+            attemptPlay();
 
             toggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
