@@ -8,15 +8,11 @@
  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Anek+Tamil:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
  
     <style>
         /* ==========================================================================
            DESIGN TOKENS
-           A cinema-lobby palette: velvet curtain browns + antique marquee gold,
-           instead of a generic streaming-app red/black. The ticket itself is
-           always "paper" colored — an artifact that doesn't change with the
-           site's light/dark mode, the way a printed stub wouldn't.
            ========================================================================== */
         :root[data-theme="dark"] {
             --bg-void: #0A0503;
@@ -75,7 +71,7 @@
             --paper-line: rgba(36, 22, 8, 0.16);
             --stub-bg: #E9DBB4;
  
-            --font-display: 'Oswald', sans-serif;
+            --font-display: 'Anton', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
             --font-tamil: 'Anek Tamil', sans-serif;
@@ -156,7 +152,7 @@
         }
         .navbar.scrolled { background: var(--bg-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom-color: var(--border-subtle); padding: 0.85rem 0; }
         .nav-container { display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none; color: var(--text-primary); text-transform: uppercase; }
+        .logo { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; letter-spacing: 0.5px; text-decoration: none; color: var(--text-primary); text-transform: uppercase; }
         .logo .reel { color: var(--gold-bright); }
         .logo span.divider { color: var(--text-tertiary); font-weight: 400; }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -174,13 +170,13 @@
         .toggle-btn:hover { border-color: var(--gold); color: var(--gold-bright); }
  
         /* ==========================================================================
-           FILM SPROCKET DIVIDER — signature structural motif
+           FILM SPROCKET DIVIDER
            ========================================================================== */
         .sprocket-strip { display: flex; justify-content: center; gap: 14px; padding: 0.9rem 0; opacity: 0.55; }
         .sprocket-strip span { width: 8px; height: 8px; border-radius: 2px; background: var(--gold); opacity: 0.6; }
  
         /* ==========================================================================
-           SCROLL PROGRESS + FILM GRAIN — ambient modern texture
+           SCROLL PROGRESS + FILM GRAIN
            ========================================================================== */
         .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--crimson-bright), var(--gold-bright)); z-index: 1001; transition: width 0.1s linear; }
         .grain-overlay {
@@ -189,7 +185,7 @@
         }
  
         /* ==========================================================================
-           HERO — asymmetric split, cursor-tracked spotlight
+           HERO — Centered Layout
            ========================================================================== */
         .hero { padding: 8.5rem 0 3rem; position: relative; overflow: hidden; }
         .hero::before {
@@ -197,14 +193,12 @@
             background: radial-gradient(600px circle at var(--spot-x, 50%) var(--spot-y, 30%), var(--crimson-glow), transparent 60%);
             z-index: -1; pointer-events: none; opacity: 0.55; transition: opacity 0.4s ease;
         }
-        .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; }
-        .hero-copy { text-align: left; }
-        .hero-copy h1 { font-family: var(--font-display); font-size: 4.2rem; line-height: 1.04; margin: 1.2rem 0; text-transform: uppercase; letter-spacing: 0.5px; }
-        .hero-copy p { font-size: 1.08rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 520px; }
-        .hero-cta-group { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+        .hero-copy { text-align: center; max-width: 800px; margin: 0 auto; }
+        .hero-copy h1 { font-family: var(--font-display); font-size: 4.8rem; line-height: 1.04; margin: 1.2rem 0; text-transform: uppercase; letter-spacing: 1px; }
+        .hero-copy p { font-size: 1.08rem; color: var(--text-secondary); margin: 0 auto 2rem; max-width: 600px; }
+        .hero-cta-group { display: flex; gap: 1.1rem; justify-content: center; flex-wrap: wrap; }
  
-        /* Marquee light bulbs — theatre-lobby signature detail */
-        .marquee-lights { display: flex; gap: 16px; margin-top: 2.6rem; }
+        .marquee-lights { display: flex; gap: 16px; margin-top: 2.6rem; justify-content: center; }
         .marquee-lights span {
             width: 9px; height: 9px; border-radius: 50%; background: var(--gold);
             box-shadow: 0 0 6px var(--gold-glow);
@@ -215,36 +209,12 @@
         @keyframes bulbPulse { 0%, 100% { opacity: 0.35; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.15); } }
         @media (prefers-reduced-motion: reduce) { .marquee-lights span { animation: none; opacity: 0.85; } }
  
-        .hero-stats { display: flex; gap: 2.4rem; margin-top: 2.6rem; padding-top: 1.8rem; border-top: 1px solid var(--border-subtle); font-variant-numeric: tabular-nums; }
-        .stat-item h3 { font-family: var(--font-display); font-size: 2.1rem; color: var(--gold-bright); }
+        .hero-stats { display: flex; gap: 3.5rem; margin-top: 2.6rem; padding-top: 1.8rem; border-top: 1px solid var(--border-subtle); font-variant-numeric: tabular-nums; justify-content: center; }
+        .stat-item h3 { font-family: var(--font-display); font-size: 2.5rem; color: var(--gold-bright); letter-spacing: 0.5px; }
         .stat-item p { font-size: 0.78rem; color: var(--text-tertiary); margin: 0; text-transform: uppercase; letter-spacing: 0.5px; }
  
-        /* Floating hero visual — a preview shard of the ticket, tilted like a held stub */
-        .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; perspective: 1200px; }
-        .hero-visual-card {
-            width: 100%; max-width: 320px; background: var(--paper); border-radius: 18px; padding: 1.6rem;
-            box-shadow: var(--shadow-card); transform: rotate(4deg); position: relative;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .hero-visual:hover .hero-visual-card { transform: rotate(0deg) translateY(-6px); }
-        .hero-visual-card .stub-label { color: var(--paper-ink-soft); }
-        .hero-visual-card h4 { font-family: var(--font-display); text-transform: uppercase; color: var(--paper-ink); font-size: 1.15rem; margin: 0.5rem 0 0.15rem; letter-spacing: 0.3px; }
-        .hero-visual-card p.hv-sub { font-family: var(--font-mono); font-size: 0.76rem; color: var(--paper-ink-soft); margin-bottom: 1rem; }
-        .hero-visual-card .hv-divider { border: none; border-top: 1px dashed var(--paper-line); margin: 1rem 0; }
-        .hero-visual-card .hv-row { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.78rem; color: var(--paper-ink-soft); margin-bottom: 0.4rem; }
-        .hero-visual-card .hv-row b { color: var(--paper-ink); font-weight: 700; }
-        .hero-visual-glow { position: absolute; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, var(--gold-glow), transparent 70%); z-index: -1; }
-        .hero-visual-ring { position: absolute; inset: -18px; border: 1px dashed var(--border-subtle); border-radius: 26px; pointer-events: none; }
-        @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .hero-copy { text-align: center; }
-            .hero-copy p { margin-left: auto; margin-right: auto; }
-            .hero-cta-group, .hero-stats, .marquee-lights { justify-content: center; }
-            .hero-visual { margin-top: 1rem; }
-        }
- 
         /* ==========================================================================
-           TICKET SHOWCASE — die-cut stub, printed-paper look
+           TICKET SHOWCASE
            ========================================================================== */
         .ticket-section { padding: 1rem 0 6rem; position: relative; }
         .ticket-card-container { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
@@ -259,7 +229,6 @@
             transition: transform var(--trans-smooth), box-shadow var(--trans-smooth);
         }
         .reference-ticket:hover { transform: rotate(0deg) translateY(-5px); }
-        /* Holographic foil sheen — sweeps across on hover, like light catching printed foil */
         .reference-ticket::after {
             content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 3;
             background: linear-gradient(115deg, transparent 30%, rgba(232,201,122,0.35) 45%, rgba(196,58,46,0.18) 52%, transparent 65%);
@@ -272,16 +241,15 @@
         .ticket-main { padding: 1.9rem 1.8rem; }
         .ticket-top-header { display: flex; gap: 1.2rem; align-items: center; margin-bottom: 1.5rem; }
         .movie-poster { width: 72px; height: 96px; border-radius: 10px; object-fit: cover; box-shadow: 0 6px 14px rgba(36,18,7,0.25); flex-shrink: 0; }
-        .movie-details h2 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; color: var(--paper-ink); letter-spacing: 0.3px; text-transform: uppercase; margin-bottom: 0.25rem; }
+        .movie-details h2 { font-family: var(--font-display); font-size: 1.8rem; color: var(--paper-ink); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.25rem; }
         .movie-details .tags { font-size: 0.88rem; color: var(--paper-ink-soft); font-weight: 500; font-family: var(--font-mono); }
  
         .ticket-meta-row { padding-top: 1.2rem; border-top: 1px dashed var(--paper-line); }
         .booking-info { font-size: 0.86rem; color: var(--paper-ink-soft); font-weight: 600; line-height: 1.6; font-family: var(--font-mono); }
         .booking-id-text { color: var(--paper-ink); font-weight: 700; }
-        .show-datetime { font-size: 1.05rem; font-weight: 700; color: var(--paper-ink); margin-top: 0.9rem; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.3px; }
+        .show-datetime { font-size: 1.15rem; font-weight: 700; color: var(--paper-ink); margin-top: 0.9rem; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.3px; }
         .theater-location { margin-top: 0.9rem; font-size: 0.92rem; font-weight: 600; color: var(--paper-ink-soft); }
  
-        /* Perforation between stub and main body — the signature die-cut */
         .ticket-perforation {
             position: relative;
             background-image: repeating-linear-gradient(to bottom, var(--paper-line) 0 8px, transparent 8px 16px);
@@ -301,7 +269,7 @@
         }
         .stub-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 2px; color: var(--paper-ink-soft); font-weight: 700; }
         .qr-image { width: 90px; height: 90px; border-radius: 8px; flex-shrink: 0; }
-        .seat-info h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--paper-ink); letter-spacing: 0.3px; }
+        .seat-info h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--paper-ink); letter-spacing: 0.3px; }
         .seat-info .count { font-size: 0.82rem; color: var(--paper-ink-soft); margin-top: 0.15rem; font-family: var(--font-mono); }
         .seat-info .number { font-size: 0.9rem; font-weight: 700; color: var(--paper-ink); margin-top: 0.1rem; font-family: var(--font-mono); }
  
@@ -324,16 +292,7 @@
            ========================================================================== */
         section { padding: 5rem 0; }
         .section-header { text-align: center; max-width: 650px; margin: 0 auto 3rem; }
-        .section-header h2 { font-family: var(--font-display); font-size: 2.5rem; margin-top: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px; }
- 
-        /* Featured bento grid — a still, composed lead-in before the moving reel below */
-        .bento-grid { max-width: 1000px; margin: 0 auto 2.5rem; padding: 0 1.5rem; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 160px); gap: 1rem; }
-        .bento-item { position: relative; height: 100% !important; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); background: var(--bg-surface); cursor: pointer; transition: border-color var(--trans-fast), transform var(--trans-fast); }
-        .bento-item:hover, .bento-item:focus-visible { border-color: var(--gold); transform: translateY(-3px); }
-        .bento-item img, .bento-item video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .bento-item.b-tall { grid-row: span 2; }
-        .bento-item.b-wide { grid-column: span 2; }
-        @media (max-width: 900px) { .bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 140px); } .bento-item.b-wide { grid-column: span 2; } .bento-item.b-tall { grid-row: span 1; } }
+        .section-header h2 { font-family: var(--font-display); font-size: 2.8rem; margin-top: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px; }
  
         .marquee-viewport { width: 100%; overflow: hidden; position: relative; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); }
         .marquee-track { display: flex; width: max-content; gap: 1.5rem; align-items: center; padding: 1rem; animation: marquee-scroll 35s linear infinite; }
@@ -392,7 +351,7 @@
         .footer { border-top: 1px solid var(--border-subtle); padding: 4rem 0 2rem; background: var(--bg-surface); margin-top: 2rem; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
         .footer-brand p { color: var(--text-tertiary); font-size: 0.9rem; margin-top: 1rem; max-width: 340px; }
-        .footer h4 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 1rem; font-size: 0.95rem; }
+        .footer h4 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 1rem; font-size: 1.1rem; }
         .footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); }
         .footer ul a { color: inherit; text-decoration: none; }
         .footer ul a:hover { color: var(--gold-bright); }
@@ -407,7 +366,7 @@
         }
  
         @media (max-width: 768px) {
-            .hero-copy h1 { font-size: 2.6rem; }
+            .hero-copy h1 { font-size: 3rem; }
             .hero-stats { flex-direction: column; gap: 1.4rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
@@ -454,40 +413,24 @@
     <main id="main-content">
         <section class="hero" id="hero">
             <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <span class="badge" data-key="hero-badge">Official FDFS Tribute Ticket</span>
-                        <h1><span data-key="hero-title-1">ONE LAST DANCE.</span><br><span class="gradient-text" data-key="hero-title-2">ONE FINAL TICKET.</span></h1>
-                        <p data-key="hero-desc">More than 33 years of iconic moments, unforgettable performances, and endless fan celebrations deserve to be remembered. Relive the excitement through a digital FDFS experience created with love for every fan.</p>
+                <div class="hero-copy">
+                    <span class="badge" data-key="hero-badge">Official FDFS Tribute Ticket</span>
+                    <h1><span data-key="hero-title-1">ONE LAST DANCE.</span><br><span class="gradient-text" data-key="hero-title-2">ONE FINAL TICKET.</span></h1>
+                    <p data-key="hero-desc">More than 33 years of iconic moments, unforgettable performances, and endless fan celebrations deserve to be remembered. Relive the excitement through a digital FDFS experience created with love for every fan.</p>
  
-                        <div class="hero-cta-group">
-                            <a href="#ticket-section" class="btn btn-primary" data-key="btn-view-ticket">View FDFS Ticket</a>
-                            <a href="#watch" class="btn btn-outline" data-key="btn-watch">Watch Tribute Video</a>
-                        </div>
- 
-                        <div class="marquee-lights" aria-hidden="true">
-                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                        </div>
- 
-                        <div class="hero-stats">
-                            <div class="stat-item"><h3>69</h3><p data-key="stat-1">Films Strong</p></div>
-                            <div class="stat-item"><h3>33+</h3><p data-key="stat-2">Years of Stardom</p></div>
-                            <div class="stat-item"><h3>1</h3><p data-key="stat-3">Final Bow</p></div>
-                        </div>
+                    <div class="hero-cta-group">
+                        <a href="#ticket-section" class="btn btn-primary" data-key="btn-view-ticket">View FDFS Ticket</a>
+                        <a href="#watch" class="btn btn-outline" data-key="btn-watch">Watch Tribute Video</a>
                     </div>
  
-                    <div class="hero-visual" aria-hidden="true">
-                        <div class="hero-visual-glow"></div>
-                        <div class="hero-visual-card">
-                            <div class="hero-visual-ring"></div>
-                            <span class="stub-label">FDFS · SCREEN 3</span>
-                            <h4>Jana Nayagan</h4>
-                            <p class="hv-sub">Tamil · 2D · A</p>
-                            <hr class="hv-divider">
-                            <div class="hv-row"><span>Date</span><b>25 Jul</b></div>
-                            <div class="hv-row"><span>Time</span><b>02:45 PM</b></div>
-                            <div class="hv-row"><span>Seat</span><b>AA13</b></div>
-                        </div>
+                    <div class="marquee-lights" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+ 
+                    <div class="hero-stats">
+                        <div class="stat-item"><h3>69</h3><p data-key="stat-1">Films Strong</p></div>
+                        <div class="stat-item"><h3>33+</h3><p data-key="stat-2">Years of Stardom</p></div>
+                        <div class="stat-item"><h3>1</h3><p data-key="stat-3">Final Bow</p></div>
                     </div>
                 </div>
             </div>
@@ -584,26 +527,6 @@
                 <h2 data-key="gallery-heading">RELIVE THE CELEBRATION</h2>
             </div>
  
-            <div class="bento-grid">
-                <div class="marquee-item bento-item b-tall" data-media-type="image" data-media-src="fdfs/photo1.jpeg" role="button" tabindex="0" aria-label="Open photo 1">
-                    <img src="fdfs/photo1.jpeg" alt="Photo 1" loading="lazy">
-                </div>
-                <div class="marquee-item bento-item b-wide" data-media-type="video" data-media-src="fdfs/video1.mp4" role="button" tabindex="0" aria-label="Open video 1">
-                    <span class="media-badge">▶ VIDEO</span>
-                    <video autoplay loop muted playsinline><source src="fdfs/video1.mp4" type="video/mp4"></video>
-                </div>
-                <div class="marquee-item bento-item" data-media-type="image" data-media-src="fdfs/photo2.jpeg" role="button" tabindex="0" aria-label="Open photo 2">
-                    <img src="fdfs/photo2.jpeg" alt="Photo 2" loading="lazy">
-                </div>
-                <div class="marquee-item bento-item" data-media-type="image" data-media-src="fdfs/photo3.jpeg" role="button" tabindex="0" aria-label="Open photo 3">
-                    <img src="fdfs/photo3.jpeg" alt="Photo 3" loading="lazy">
-                </div>
-                <div class="marquee-item bento-item" data-media-type="video" data-media-src="fdfs/video2.mp4" role="button" tabindex="0" aria-label="Open reel 2">
-                    <span class="media-badge">▶ REEL</span>
-                    <video autoplay loop muted playsinline><source src="fdfs/video2.mp4" type="video/mp4"></video>
-                </div>
-            </div>
- 
             <div class="marquee-viewport">
                 <div class="marquee-track" id="marquee-track">
                     <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo1.jpeg" role="button" tabindex="0" aria-label="Open photo 1">
@@ -632,7 +555,6 @@
                         <video autoplay loop muted playsinline><source src="fdfs/video4.mp4" type="video/mp4"></video>
                     </div>
  
-                    <!-- duplicated set for seamless marquee loop — hidden from a11y tree -->
                     <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo1.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo1.jpeg" alt="" loading="lazy"></div>
                     <div class="marquee-item ratio-4-5" data-media-type="image" data-media-src="fdfs/photo2.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo2.jpeg" alt="" loading="lazy"></div>
                     <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo3.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo3.jpeg" alt="" loading="lazy"></div>
@@ -737,7 +659,7 @@
         let currentLang = 'en';
  
         document.addEventListener('DOMContentLoaded', () => {
-            applyTranslations(currentLang); // guarantee markup matches the dictionary on first paint
+            applyTranslations(currentLang);
             initNavbarScroll();
             initCopyAction();
             initCalendarAction();
@@ -766,7 +688,7 @@
  
         function initHeroSpotlight() {
             const hero = document.getElementById('hero');
-            if (!hero || window.matchMedia('(hover: none)').matches) return; // skip on touch devices
+            if (!hero || window.matchMedia('(hover: none)').matches) return;
             hero.addEventListener('mousemove', (e) => {
                 const rect = hero.getBoundingClientRect();
                 const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -837,7 +759,6 @@
             const prevBtn = document.getElementById('modal-prev-btn');
             const nextBtn = document.getElementById('modal-next-btn');
  
-            // Only the real (non-duplicated) items form the navigable gallery
             const items = Array.from(document.querySelectorAll('.marquee-item:not([aria-hidden="true"])'));
             let currentIndex = 0;
  
@@ -929,7 +850,7 @@
                     feedback.innerText = translations[currentLang]['copy-success'];
                     setTimeout(() => { feedback.innerText = ''; }, 2500);
                 }).catch(() => {
-                    feedback.innerText = bookingId; // fallback: show it so it can be copied manually
+                    feedback.innerText = bookingId;
                 });
             });
         }
