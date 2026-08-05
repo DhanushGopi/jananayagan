@@ -400,11 +400,7 @@
            ========================================================================== */
         .video-section { padding: 3rem 0 6rem; position: relative; }
         .inline-video-box { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-subtle); background: var(--bg-surface); aspect-ratio: 16 / 9; max-width: 960px; margin: 0 auto; box-shadow: var(--shadow-card); }
-        .inline-video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .inline-video-overlay { position: absolute; inset: 0; background: rgba(10, 5, 3, 0.78); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: opacity var(--trans-fast); color: #F6EEDD; z-index: 2; padding: 1rem; text-align: center; }
-        .inline-video-overlay.hidden { opacity: 0; pointer-events: none; }
-        .play-trigger-btn { width: 76px; height: 76px; border-radius: 50%; background: var(--crimson-bright); color: #FBF6EC; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-crimson-glow); transition: transform var(--trans-fast); flex-shrink: 0; }
-        .inline-video-overlay:hover .play-trigger-btn { transform: scale(1.1); }
+        .inline-video-box video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border: none; }
 
         /* ==========================================================================
            GALLERY MARQUEE
@@ -414,18 +410,21 @@
         .section-header h2 { font-family: var(--font-display); font-size: 2.2rem; margin-top: 0.6rem; text-transform: uppercase; letter-spacing: -0.3px; word-break: break-word; }
 
         .marquee-viewport { width: 100%; overflow: hidden; position: relative; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%); }
-        .marquee-track { display: flex; width: max-content; gap: 1.5rem; align-items: center; padding: 1rem; animation: marquee-scroll 35s linear infinite; }
+        .marquee-track { display: flex; width: max-content; gap: 1.5rem; align-items: center; padding: 1rem; animation: marquee-scroll 45s linear infinite; }
         .marquee-track:hover, .marquee-track:focus-within { animation-play-state: paused; }
         @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
         .marquee-item { flex-shrink: 0; height: 280px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 14px; overflow: hidden; position: relative; cursor: pointer; transition: border-color var(--trans-fast), transform var(--trans-fast); }
         .marquee-item:hover, .marquee-item:focus-visible { border-color: var(--gold); transform: translateY(-4px); }
+        
+        /* Aspect Ratios */
         .marquee-item.ratio-16-9 { aspect-ratio: 16 / 9; }
-        .marquee-item.ratio-4-5 { aspect-ratio: 4 / 5; }
+        .marquee-item.ratio-9-16 { aspect-ratio: 9 / 16; }
+
         .marquee-item img, .marquee-item video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .media-badge { position: absolute; top: 12px; right: 12px; background: rgba(10, 5, 3, 0.78); backdrop-filter: blur(8px); color: #F6EEDD; padding: 4px 10px; border-radius: 20px; font-size: 0.68rem; font-family: var(--font-mono); font-weight: 700; display: flex; align-items: center; gap: 4px; border: 1px solid rgba(246, 238, 221, 0.15); pointer-events: none; }
-        .marquee-item::after { content: '⤢ Preview'; position: absolute; inset: 0; background: rgba(10, 5, 3, 0.55); backdrop-filter: blur(4px); color: #F6EEDD; font-weight: 700; font-size: 0.82rem; font-family: var(--font-mono); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--trans-fast); }
+        .media-badge { position: absolute; top: 12px; right: 12px; background: rgba(10, 5, 3, 0.78); backdrop-filter: blur(8px); color: #F6EEDD; padding: 4px 10px; border-radius: 20px; font-size: 0.68rem; font-family: var(--font-mono); font-weight: 700; display: flex; align-items: center; gap: 4px; border: 1px solid rgba(246, 238, 221, 0.15); pointer-events: none; z-index: 2; }
+        .marquee-item::after { content: '⤢ Preview'; position: absolute; inset: 0; background: rgba(10, 5, 3, 0.55); backdrop-filter: blur(4px); color: #F6EEDD; font-weight: 700; font-size: 0.82rem; font-family: var(--font-mono); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--trans-fast); z-index: 3; }
         .marquee-item:hover::after, .marquee-item:focus-visible::after { opacity: 1; }
 
         /* ==========================================================================
@@ -593,7 +592,7 @@
                     <div class="reference-ticket active">
                         <div class="ticket-main">
                             <div class="ticket-top-header">
-                                <img src="fdfs/photo1.jpeg" alt="Jana Nayagan poster" class="movie-poster" loading="lazy">
+                                <img src="fdfs/jnticketthumbnail.jpg" alt="Jana Nayagan poster" class="movie-poster" loading="lazy">
                                 <div class="movie-details">
                                     <h2>Jana Nayagan</h2>
                                     <div class="tags">Tamil · 2D · A</div>
@@ -638,7 +637,7 @@
                     <div class="reference-ticket next-1">
                         <div class="ticket-main">
                             <div class="ticket-top-header">
-                                <img src="fdfs/photo2.jpeg" alt="Jana Nayagan poster" class="movie-poster" loading="lazy">
+                                <img src="fdfs/jnticketthumbnail.jpg" alt="Jana Nayagan poster" class="movie-poster" loading="lazy">
                                 <div class="movie-details">
                                     <h2>Jana Nayagan</h2>
                                     <div class="tags">Tamil · IMAX 2D · A</div>
@@ -683,7 +682,7 @@
                     <div class="reference-ticket next-2">
                         <div class="ticket-main">
                             <div class="ticket-top-header">
-                                <img src="fdfs/photo3.jpeg" alt="Jana Nayagan poster" class="movie-poster" loading="lazy">
+                                <img src="fdfs/thegoatthumbnail.avif" alt="Jana Nayagan poster" class="movie-poster" loading="lazy">
                                 <div class="movie-details">
                                     <h2>Jana Nayagan</h2>
                                     <div class="tags">Tamil · 2D Atmos · A</div>
@@ -742,13 +741,10 @@
                     <h2 data-key="video-heading">CINEMATIC TRIBUTE</h2>
                 </div>
                 <div class="inline-video-box">
-                    <iframe id="tribute-iframe" src="about:blank" data-src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Jana Nayagan official tribute visual" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="inline-video-overlay" id="inline-video-overlay" role="button" tabindex="0" aria-label="Play tribute video">
-                        <div class="play-trigger-btn">
-                            <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                        <p style="margin-top: 1rem; font-weight: 400; font-family: var(--font-display); text-transform: uppercase; letter-spacing: -0.3px; font-size: 1rem;" data-key="video-play-text">Click to Play Tribute Video</p>
-                    </div>
+                    <video autoplay loop muted playsinline aria-label="Jana Nayagan official tribute visual">
+                        <source src="fdfs/tribute.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </section>
@@ -761,39 +757,81 @@
 
             <div class="marquee-viewport">
                 <div class="marquee-track" id="marquee-track">
-                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo1.jpeg" role="button" tabindex="0" aria-label="Open photo 1">
-                        <img src="fdfs/photo1.jpeg" alt="Photo 1">
-                    </div>
-                    <div class="marquee-item ratio-4-5" data-media-type="image" data-media-src="fdfs/photo2.jpeg" role="button" tabindex="0" aria-label="Open photo 2">
-                        <img src="fdfs/photo2.jpeg" alt="Photo 2">
-                    </div>
-                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo3.jpeg" role="button" tabindex="0" aria-label="Open photo 3">
-                        <img src="fdfs/photo3.jpeg" alt="Photo 3">
-                    </div>
+                    
                     <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video1.mp4" role="button" tabindex="0" aria-label="Open video 1">
                         <span class="media-badge">▶ VIDEO</span>
                         <video autoplay loop muted playsinline><source src="fdfs/video1.mp4" type="video/mp4"></video>
                     </div>
-                    <div class="marquee-item ratio-4-5" data-media-type="video" data-media-src="fdfs/video2.mp4" role="button" tabindex="0" aria-label="Open reel 2">
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo1.jpeg" role="button" tabindex="0" aria-label="Open photo 1">
+                        <img src="fdfs/photo1.jpeg" alt="Photo 1">
+                    </div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video2.mp4" role="button" tabindex="0" aria-label="Open reel 2">
                         <span class="media-badge">▶ REEL</span>
                         <video autoplay loop muted playsinline><source src="fdfs/video2.mp4" type="video/mp4"></video>
                     </div>
-                    <div class="marquee-item ratio-4-5" data-media-type="video" data-media-src="fdfs/video3.mp4" role="button" tabindex="0" aria-label="Open reel 3">
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo2.jpeg" role="button" tabindex="0" aria-label="Open photo 2">
+                        <img src="fdfs/photo2.jpeg" alt="Photo 2">
+                    </div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video3.mp4" role="button" tabindex="0" aria-label="Open reel 3">
                         <span class="media-badge">▶ REEL</span>
                         <video autoplay loop muted playsinline><source src="fdfs/video3.mp4" type="video/mp4"></video>
                     </div>
-                    <div class="marquee-item ratio-4-5" data-media-type="video" data-media-src="fdfs/video4.mp4" role="button" tabindex="0" aria-label="Open reel 4">
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video4.mp4" role="button" tabindex="0" aria-label="Open reel 4">
                         <span class="media-badge">▶ REEL</span>
                         <video autoplay loop muted playsinline><source src="fdfs/video4.mp4" type="video/mp4"></video>
                     </div>
 
-                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo1.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo1.jpeg" alt="" loading="lazy"></div>
-                    <div class="marquee-item ratio-4-5" data-media-type="image" data-media-src="fdfs/photo2.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo2.jpeg" alt="" loading="lazy"></div>
-                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo3.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo3.jpeg" alt="" loading="lazy"></div>
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo3.jpeg" role="button" tabindex="0" aria-label="Open photo 3">
+                        <img src="fdfs/photo3.jpeg" alt="Photo 3">
+                    </div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video5.mp4" role="button" tabindex="0" aria-label="Open reel 5">
+                        <span class="media-badge">▶ REEL</span>
+                        <video autoplay loop muted playsinline><source src="fdfs/video5.mp4" type="video/mp4"></video>
+                    </div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo4.png" role="button" tabindex="0" aria-label="Open photo 4">
+                        <img src="fdfs/photo4.png" alt="Photo 4">
+                    </div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video6.mp4" role="button" tabindex="0" aria-label="Open reel 6">
+                        <span class="media-badge">▶ REEL</span>
+                        <video autoplay loop muted playsinline><source src="fdfs/video6.mp4" type="video/mp4"></video>
+                    </div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video7.mp4" role="button" tabindex="0" aria-label="Open reel 7">
+                        <span class="media-badge">▶ REEL</span>
+                        <video autoplay loop muted playsinline><source src="fdfs/video7.mp4" type="video/mp4"></video>
+                    </div>
+
+
                     <div class="marquee-item ratio-16-9" data-media-type="video" data-media-src="fdfs/video1.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ VIDEO</span><video autoplay loop muted playsinline><source src="fdfs/video1.mp4" type="video/mp4"></video></div>
-                    <div class="marquee-item ratio-4-5" data-media-type="video" data-media-src="fdfs/video2.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video2.mp4" type="video/mp4"></video></div>
-                    <div class="marquee-item ratio-4-5" data-media-type="video" data-media-src="fdfs/video3.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video3.mp4" type="video/mp4"></video></div>
-                    <div class="marquee-item ratio-4-5" data-media-type="video" data-media-src="fdfs/video4.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video4.mp4" type="video/mp4"></video></div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo1.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo1.jpeg" alt="" loading="lazy"></div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video2.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video2.mp4" type="video/mp4"></video></div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo2.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo2.jpeg" alt="" loading="lazy"></div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video3.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video3.mp4" type="video/mp4"></video></div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video4.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video4.mp4" type="video/mp4"></video></div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo3.jpeg" aria-hidden="true" tabindex="-1"><img src="fdfs/photo3.jpeg" alt="" loading="lazy"></div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video5.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video5.mp4" type="video/mp4"></video></div>
+
+                    <div class="marquee-item ratio-16-9" data-media-type="image" data-media-src="fdfs/photo4.png" aria-hidden="true" tabindex="-1"><img src="fdfs/photo4.png" alt="" loading="lazy"></div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video6.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video6.mp4" type="video/mp4"></video></div>
+
+                    <div class="marquee-item ratio-9-16" data-media-type="video" data-media-src="fdfs/video7.mp4" aria-hidden="true" tabindex="-1"><span class="media-badge">▶ REEL</span><video autoplay loop muted playsinline><source src="fdfs/video7.mp4" type="video/mp4"></video></div>
+
                 </div>
             </div>
         </section>
@@ -855,7 +893,7 @@
                 "lbl-booking-id": "Booking ID:", "lbl-booking-code": "Booking code:",
                 "ticket-datetime": "Sat, 25 Jul · 02:45 PM", "ticket-count": "1 ticket",
                 "stub-label": "ADMIT ONE",
-                "video-badge": "A Tribute to a Legacy", "video-heading": "CINEMATIC TRIBUTE", "video-play-text": "Click to Play Tribute Video",
+                "video-badge": "A Tribute to a Legacy", "video-heading": "CINEMATIC TRIBUTE",
                 "gallery-badge": "Moments that Live Forever!", "gallery-heading": "RELIVE THE CELEBRATION",
                 "track-title": "Ulla Olicha Uyire",
                 "footer-desc": "A non-commercial digital tribute experience honoring the legacy of Thalapathy Vijay's final cinematic showcase.",
@@ -874,7 +912,7 @@
                 "lbl-booking-id": "முன்பதிவு எண்:", "lbl-booking-code": "முன்பதிவு குறியீடு:",
                 "ticket-datetime": "சனி, 25 ஜூலை · பிற்பகல் 02:45", "ticket-count": "1 டிக்கெட்",
                 "stub-label": "அனுமதி ஒன்று",
-                "video-badge": "ஒரு பாரம்பரியத்திற்கான அஞ்சலி", "video-heading": "திரைப்பட நினைவஞ்சலி", "video-play-text": "வீடியோவைக் காண கிளிக் செய்யவும்",
+                "video-badge": "ஒரு பாரம்பரியத்திற்கான அஞ்சலி", "video-heading": "திரைப்பட நினைவஞ்சலி",
                 "gallery-badge": "என்றும் நினைவில் நிற்கும் தருணங்கள்!", "gallery-heading": "கொண்டாட்டத்தை மீண்டும் காணுங்கள்",
                 "track-title": "உள்ள ஒளிச்ச உயிரே",
                 "footer-desc": "தளபதி விஜய்யின் திரையுலக பாரம்பரியத்தை கௌரவிக்கும் வணிகசாரா டிஜிட்டல் நினைவுத்தளம்.",
@@ -893,7 +931,6 @@
             initLanguageToggle();
             initMediaModal();
             initAudioPlayer();
-            initInlineVideoPlayer();
             initStackedTicketSlider();
             initScrollReveal();
             initScrollProgress();
@@ -1047,18 +1084,6 @@
                 const key = el.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) el.innerText = translations[lang][key];
             });
-        }
-
-        function initInlineVideoPlayer() {
-            const overlay = document.getElementById('inline-video-overlay');
-            const iframe = document.getElementById('tribute-iframe');
-            if (!overlay || !iframe) return;
-            const play = () => {
-                iframe.setAttribute('src', overlay.dataset.loaded ? iframe.getAttribute('data-src') : iframe.getAttribute('data-src') + "?autoplay=1");
-                overlay.classList.add('hidden');
-            };
-            overlay.addEventListener('click', play);
-            overlay.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); } });
         }
 
         function initAudioPlayer() {
